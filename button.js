@@ -1,5 +1,11 @@
 
 var magic = function(){
   header= document.getElementById("first");
-  header.innerText= "This is now changed"
+  if (header.innerText=="Buttons"){
+    header.innerText= "This is now changed";
+  }
+  else{
+    header.innerText= "Buttons" 
+  }
+  
 }
