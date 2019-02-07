@@ -7,5 +7,10 @@ var magic = function(){
   else{
     header.innerText= "Buttons" 
   }
-  
+}
+var questions= function(){
+  L= document.getElementById("qlist");
+  for(var i=0;i<20;i++){
+       
+  }
 }
