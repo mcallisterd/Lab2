@@ -1,20 +1,3 @@
-
-var magic = function(){
-  header= document.getElementById("first");
-  if (header.innerText=="Buttons"){
-    header.innerText= "This is now changed";
-  }
-  else{
-    header.innerText= "Buttons"
-  }
-}
-var questions= function(){
-  L= document.getElementById("qlist");
-  for(var i=0;i<20;i++){
-
-  }
-}
-
 var writeMAIN = function(){
     var top = document.getElementById("start");
     var q1 = document.createElement("h2");
@@ -65,7 +48,6 @@ var writeMAIN = function(){
 
 var checkRight = function(clickedID,rowID){
   var row= document.getElementById(rowID);
-  console.log("CALLED checkRight");
   var rightAnswers = ["William McKinley","Chad","Cassowary"];
   if(rightAnswers.includes(clickedID)){
     var hooray=document.createElement("td");
@@ -89,9 +71,8 @@ var checkRight = function(clickedID,rowID){
   }
   var kids= row.children;
   console.log(kids);
-  for(var i=0;i<kids.length;i++){
-    kids[i].onclick=null;
-    console.log("HERE IN CHECKRIGHT REMOVING ONCLICK");
+  for(var i=0;i<kids.length-1;i++){
+    kids[i].children[0].removeAttribute("onclick");
   }
 }
 
@@ -112,9 +93,7 @@ var writeTable= function(optionNames,pics){
           var option = document.createElement("button");
           option.innerText= optionNames[i];
           option.id= optionNames[i];
-          //"checkRight('"+option.id+"','"+row.id+"');"
           option.setAttribute("onclick", "checkRight('"+option.id+"','"+row.id+"');");
-          console.log(option.onclick);
           option.type="submit";
           ele.appendChild(option);
         }
