@@ -44,7 +44,7 @@ var writeMAIN = function(){
         but.type="submit";
         but.value= countries[i];
         but.id= but.value;
-        but.onclick = "checkRight(['"+but.id+"','"+row2.id+"')"
+        but.setAttribute("onclick","checkRight('"+but.id+"','"+row2.id+"')");
         d.appendChild(but);
         row2.appendChild(d);
     }
@@ -65,6 +65,34 @@ var writeMAIN = function(){
 
 var checkRight = function(clickedID,rowID){
   var row= document.getElementById(rowID);
+  console.log("CALLED checkRight");
+  var rightAnswers = ["William McKinley","Chad","Cassowary"];
+  if(rightAnswers.includes(clickedID)){
+    var hooray=document.createElement("td");
+    hooray.innerText= "Correct! Nice job";
+    row.appendChild(hooray);
+  }
+  else{
+    var right="";
+    if(clickedID=="Hippopotamus" || clickedID=="Komodo Dragon"){
+      right="Cassowary";
+    }
+    else if (clickedID=="Sudan" || clickedID=="CAR") {
+      right="Chad";
+    }
+    else if (clickedID=="John F Kennedy" || clickedID=="William Howard Taft") {
+      right="William McKinley";
+    }
+    var noray= document.createElement("td");
+    noray.innerText= "No, sorry. The right answer was "+right;
+    row.appendChild(noray);
+  }
+  var kids= row.children;
+  console.log(kids);
+  for(var i=0;i<kids.length;i++){
+    kids[i].onclick=null;
+    console.log("HERE IN CHECKRIGHT REMOVING ONCLICK");
+  }
 }
 
 var writeTable= function(optionNames,pics){
@@ -81,10 +109,12 @@ var writeTable= function(optionNames,pics){
           pic.width ="200";
           ele.appendChild(pic);
         } else {
-          var option = document.createElement("input");
-          option.value= optionNames[i];
-          option.id= option.value;
-          option.onclick= "checkRight(['"+option.value+"','"+row.id+"'])";
+          var option = document.createElement("button");
+          option.innerText= optionNames[i];
+          option.id= optionNames[i];
+          //"checkRight('"+option.id+"','"+row.id+"');"
+          option.setAttribute("onclick", "checkRight('"+option.id+"','"+row.id+"');");
+          console.log(option.onclick);
           option.type="submit";
           ele.appendChild(option);
         }
