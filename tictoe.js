@@ -28,7 +28,7 @@ var myMove = function(){
   for(var i=0;i<9;i++){
     var name = "picture"+strs[i];
     var pic= document.getElementById(name);
-    if(pic.src==="https://mcallisterd.github.io/S19DataVis265/white_back.PNG" && go){
+    if(pic.src==="https://mcallisterd.github.io/Lab2/white_back.PNG" && go){
         pic.src="o.jpg"
         pic.removeAttribute("onclick")
         go= false;
