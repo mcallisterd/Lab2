@@ -1,5 +1,5 @@
-var start = function(){
-  var t= document.getElementById("t1");
+var start = function(id="t1"){
+  var t= document.getElementById(id);
   for(var i=1;i<4;i++){
       var r= document.createElement("tr");
       for(var j=0; j<3;j++){
@@ -34,16 +34,14 @@ var clickered = function(ID){
     var celebrate= document.createElement("h3");
     celebrate.innerText="Nice job "+tab.getAttribute("name")+", you won!"
     celebrate.id="laster";
-    tab.after(celebrate);
-    goAgain();
   }
   else if (full()) {
     var celebrate= document.createElement("h3");
     celebrate.innerText="Tie, nobody wins"
-    celebrate.id="laster";
-    tab.after(celebrate);
-    goAgain();
   }
+  celebrate.id="laster";
+  tab.after(celebrate);
+  goAgain();
 }
 
 var full = function(){
@@ -115,14 +113,20 @@ var goAgain = function(){
   var very= document.getElementById("laster");
   turnemoff(last);
   last.removeAttribute("id");
+  very.removeAttribute("id");
 
   var br = document.createElement("hr");
   var tab = document.createElement("table");
   tab.id="t1";
-  tab.name="x";
+  if(last.getAttribute("name")=="X"){
+    var n="o";
+  }
+  else{
+    var n="x";
+  }
+  tab.setAttribute("name",n);
 
   very.after(br);
   br.after(tab);
-
-  start()
+  start(tab.id);
 }
