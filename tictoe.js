@@ -76,7 +76,7 @@ var checkWinner = function(tab){
 }
 
 var xoro = function(a){
-  if(a=="file:///C:/Users/New%20User/github/Lab2/images/x.png" || a=="images/x.png"){
+  if(a=="file:///C:/Users/New%20User/github/Lab2/images/x.png" || a=="images/x.png" || a=="https://mcallisterd.github.io/Lab2/images/x.png"){
     return "X";
   }
   return "O"
