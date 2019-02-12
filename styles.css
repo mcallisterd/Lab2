@@ -1,0 +1,21 @@
+body  {
+      background-color: gainsboro;
+      }
+h1
+    {
+      font-family:Bookman;
+      color: blue;
+    }
+p
+  {
+    font-family: Bookman;
+    color: dodgerblue;
+  }
+    
+table {
+        border: 3px solid black;
+      }
+td 
+    {
+      border: 1px solid black
+    }
