@@ -30,7 +30,7 @@ var clickered = function(ID){
     tab.setAttribute("name","x");
   }
   clicked.onclick=null;
-  if(checkWinner()){
+  if(checkWinner(tab)){
     var celebrate= document.createElement("h3");
     celebrate.innerText="Nice job "+tab.getAttribute("name")+", you won!"
     celebrate.id="laster";
@@ -53,15 +53,13 @@ var full = function(){
   for(var i=0;i<pictures.length;i++){
     sources.push(pictures[i].getAttribute("src"));
   }
-  console.log(sources);
   if(!sources.includes("images/white_back.PNG")){
     return true;
   }
   return false;
 }
 
-var checkWinner = function(){
-  var tab = document.getElementById("t1");
+var checkWinner = function(tab){
   var p= allPictures(tab);
   var pictures=[];
   for(var i=0;i<p.length;i++){
@@ -78,7 +76,7 @@ var checkWinner = function(){
 }
 
 var xoro = function(a){
-  if(a=="file:///C:/Users/New%20User/github/Lab2/images/x.png" && a!="https://mcallisterd.github.io/Lab2/images/x.png"){
+  if(a=="file:///C:/Users/New%20User/github/Lab2/images/x.png" || a=="https://mcallisterd.github.io/Lab2/images/x.png"){
     return "X";
   }
   return "O"
@@ -121,7 +119,10 @@ var goAgain = function(){
   var br = document.createElement("hr");
   var tab = document.createElement("table");
   tab.id="t1";
+  tab.name="x";
+
   very.after(br);
   br.after(tab);
+
   start()
 }

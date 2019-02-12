@@ -17,7 +17,7 @@ var writeMAIN = function(){
     c.src= "images/africa.svg";
     c.width="400";
     c.height="400";
-    var countries = ["Chad", "Sudan", "CAR"];
+    var countries = ["Chad", "Sudan", "Democratic Republic of the Congo"];
     var t2 = document.createElement("table");
     var row2 = document.createElement("tr");
     row2.id= "row95";
@@ -59,7 +59,7 @@ var checkRight = function(clickedID,rowID){
     if(clickedID=="Hippopotamus" || clickedID=="Komodo Dragon"){
       right="Cassowary";
     }
-    else if (clickedID=="Sudan" || clickedID=="CAR") {
+    else if (clickedID=="Sudan" || clickedID=="Democratic Republic of the Congo") {
       right="Chad";
     }
     else if (clickedID=="John F Kennedy" || clickedID=="William Howard Taft") {
