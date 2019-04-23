@@ -79,7 +79,10 @@ function getPenguins(){
       d3.select("body")
         .append("div")
         .append("text")
-        .text(d)
+        .text(function(h){
+          var s = d.split("-");
+          return s[0]+" "+s[1];
+        })
         .append("img")
         .attr("src",d)
         .attr("height",50)
